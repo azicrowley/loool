@@ -1,0 +1,428 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <header>
+            <div class="lol">WakaSchool</div>
+        </header>
+                <div class="tab-container">
+                <div class="tabs">
+                    <button class="tab-button">О нас</button>
+                     <div class="submenu">
+                      <button class="tab-button" onclick="openTab(event, 'history')">История создания</button>
+                      <button class="tab-button" onclick="openTab(event, 'programm')">Программа обучения</button>
+                    </div>
+                </div>
+                {% if user.is_authenticated %}
+                <div class="tab-container">
+                <button class="tab-button" onclick="openTab(event, 'about')">Главная</button>
+                <button class="tab-button" onclick="openTab(event, 'news')">Новости</button>
+                <button class="tab-button" onclick="openTab(event, 'schedule')">Расписание</button>
+                <button class="tab-button" onclick="openTab(event, 'dining')">Столовая</button>
+                <button class="tab-button" onclick="openTab(event, 'books')">Электронные учебники</button>
+                <button class="tab-button" data-url="{% url 'logout' %}" onclick="window.location.href=this.getAttribute('data-url')">Выйти</button>
+                {% else %}
+                <button class="tab-button" data-url="{% url 'register' %}" onclick="window.location.href=this.getAttribute('data-url')">Регистрация</button>
+                {% endif %}
+                </div></div>
+    
+        <div id="history" class="tab-content">
+            <header class="text">История создания нашей школы</header>
+            <p class="historysch">В 2020 году группа энтузиастов из разных уголков мира объединилась с целью создать образовательное учреждение, которое бы обеспечивало доступ к качественному обучению для детей в Африке. Эта инициатива началась с небольшого проекта в Нигерии, где команда заметила, что многие дети не имеют возможности получить образование из-за финансовых и социальных барьеров.
+            Школа была названа "WakaSchool" и быстро завоевала популярность благодаря своему инклюзивному подходу и инновационной программе обучения. В 2022 году были открыты филиалы в таких городах, как Лагос, Найроби, Кигали и Аккра. Каждый филиал адаптировал программу обучения в соответствии с местными потребностями и культурными особенностями.
+    </p>
+    <footer>
+        <p>&copy; 2024 WakaSchool. Все права защищены.</p>
+        <p>Телефон администрации: +00 (123) 456-78-90</p>
+        <p>Адрес: г. Мапуту, ул. Байакер 228</p>
+    </footer>
+        </div>
+    
+    <div id="programm" class="tab-content">
+            <header class="text">Программа обучения</header>
+            <p class="historysch">Программа обучения "WakaSchool" включает в себя как традиционные предметы, так и курсы, направленные на развитие критического мышления, предпринимательства и технологий. 
+    </p>
+    <footer>
+        <p>&copy; 2024 WakaSchool. Все права защищены.</p>
+        <p>Телефон администрации: +00 (123) 456-78-90</p>
+        <p>Адрес: г. Мапуту, ул. Байакер 228</p>
+    </footer>
+        </div>
+    
+    
+        <div id="news" class="tab-content">
+            <h1>Новости</h1>
+                <div class="news-container">
+        <h2 class="news-title">Открытие кружка вязания</h2>
+        <p class="news-date">25 октября 2024</p>
+        <img src="{% static 'v.webp' %}" alt="Новость 1" class="news-image">
+        <p class="news-content">Совсем недавно в нашей школе открылся новый кружок вязания! Занятия будут проводиться бесплатно в четверг и пятницу. Для того чтобы записаться на пробный урок и при возникновении других вопросов, пишите на указанный номер: 000-123.</p>
+    </div>
+    
+    <div class="news-container">
+        <h2 class="news-title">Осенний бал</h2>
+        <p class="news-date">26 октября 2024</p>
+        <img src="{% static '01.jpg' %}" alt="Новость 2" class="news-image">
+        <p class="news-content">30 октября в 14: 00 в нашей школе состоится осенний бал! Ученики могут прийти в любых костюмах, но которые не содержат в себе дурной характер! Будет музыка, еда и напитки! Обязательно приходите повеселиться! По всем вопросам писать по номеру: 000-123.</p>
+    </div>
+    
+    <div class="news-container">
+        <h2 class="news-title">Олимпиада по естественным наукам</h2>
+        <p class="news-date">27 октября 2024</p>
+        <img src="{% static 'olymp.jpg' %}" alt="Новость 3" class="news-image">
+        <p class="news-content">Приглашаем всех учеников принять участие в школьной олимпиаде, которая состоится 1 ноября в 10: 30 утра. С собой достаточно захватить ручку и победный настрой! Олимпиада пройдет по таким предметам, как: физика, география, биология и химия. Удачи! По всем вопросам писать по номеру: 000-123.</p>
+    </div>
+                </li>
+            </ul>
+        </div>
+        </div>
+    
+    <div id="schedule" class="tab-content">
+        <h2>Расписание классов</h2>
+    
+       
+        <div class="schedule-tabs">
+            <button class="tab-button" onclick="openSubTab(event, 'class10')">10 классы</button>
+            <button class="tab-button" onclick="openSubTab(event, 'class11')">11 классы</button>
+        </div>
+    
+       
+        <div id="class10" class="sub-tab-content">
+            <h3>Расписание для 10 классов</h3>
+                    <img src="{% static 'waka10.jpeg' %}">
+        </div>
+    
+        <div id="class11" class="sub-tab-content">
+            <h3>Расписание для 11 классов</h3>
+                    <img src="{% static 'ras11.jpeg' %}">
+        </div>
+    </div>
+    
+    <div id="dining" class="tab-content">
+        <h2>Наша еда</h2>
+        <style>
+            table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 8px;
+                border: 1px solid #ddd;
+                text-align: center;
+            }
+            th {
+                background-color:#FF8C00;
+            }
+        </style>
+    
+    
+    
+    <table>
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Понедельник</th>
+                <th>Вторник</th>
+                <th>Среда</th>
+                <th>Четверг</th>
+                <th>Пятница</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>7.15-7.45</td>
+                <td>угали </td>
+                <td>кукурузная каша</td>
+                <td>овсянка</td>
+                <td>рисовая каша</td>
+                <td>манная каша </td>
+            </tr>
+            <tr>
+                <td>11.00-11.15</td>
+                <td>фуфу</td>
+                <td>Муамба де Галинья - Ангола</td>
+                <td>Кабса </td>
+                <td>Рис джоллоф </td>
+                <td>Боботи - Южная Африка</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    
+    <div id="books" class="tab-content">
+        <h2>Электронные учебники</h2>
+    
+    
+       
+        <div class="schedule-tabs">
+            <button class="tab-button" onclick="openSubTab(event, 'Russian')">русский</button>
+            <button class="tab-button" onclick="openSubTab(event, 'African')">африканский</button>
+            <button class="tab-button" onclick="openSubTab(event, 'algebra')">алгебра</button>
+            <button class="tab-button" onclick="openSubTab(event, 'geometry')">геометрия</button>
+            <button class="tab-button" onclick="openSubTab(event, 'physics')">физика</button>
+            <button class="tab-button" onclick="openSubTab(event, 'geography')">география</button>
+            <button class="tab-button" onclick="openSubTab(event, 'literature')">литература</button>
+            <button class="tab-button" onclick="openSubTab(event, 'informatics')">информатика</button>
+            <button class="tab-button" onclick="openSubTab(event, 'biology')">биология</button>
+            <button class="tab-button" onclick="openSubTab(event, 'chemistry')">химия</button>
+            <button class="tab-button" onclick="openSubTab(event, 'English')">английский</button>
+            <button class="tab-button" onclick="openSubTab(event, 'african-history')">история африки</button>
+            <button class="tab-button" onclick="openSubTab(event, 'world-history')">всемирная история </button>
+            <button class="tab-button" onclick="openSubTab(event, 'fundamentals-of-law')">основы права</button>
+        </div>
+    
+       
+        <div id="Russian" class="sub-tab-content">
+            <a href="https://okulyk.kz/russkij-jazyk/512/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/russkij-jazyk/682/">Учебникик для 11 классов</a>
+        </div>
+        <div id="algebra" class="sub-tab-content">
+            <a href="https://okulyk.kz/algebra/489/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/algebra/663/#google_vignette">Учебникик для 11 классов</a>
+        </div>
+        <div id="African" class="sub-tab-content">
+            <a href="">Учебникик для 10 классов</a>
+            <a href="">Учебникик для 11 классов</a>
+        </div>
+        <div id="geometry" class="sub-tab-content">
+            <a href="https://okulyk.kz/geometrija/492/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/geometrija/665/">Учебникик для 11 классов</a>
+        </div>
+        <div id="literature" class="sub-tab-content">
+            <a href="https://okulyk.kz/russkij-jazyk-i-literatura/593/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/russkij-jazyk-i-literatura/662/">Учебникик для 11 классов</a>
+        </div>
+        <div id="informatics" class="sub-tab-content">
+            <a href="https://okulyk.kz/informatika/494/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/informatika/816/">Учебникик для 11 классов</a>
+        </div>
+        <div id="biology" class="sub-tab-content">
+            <a href="https://okulyk.kz/biologija/527/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/biologija/702/">Учебникик для 11 классов</a>
+        </div>
+        <div id="chemistry" class="sub-tab-content">
+            <a href="https://okulyk.kz/himija/581/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/himija/706/">Учебникик для 11 классов</a>
+        </div>
+        <div id="English" class="sub-tab-content">
+            <a href="https://okulyk.kz/anglijskij-jazyk/535/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/anglijskij-jazyk/829/">Учебникик для 11 классов</a>
+        </div>
+        <div id="african-history" class="sub-tab-content">
+            <a href="">Учебникик для 10 классов</a>
+            <a href="">Учебникик для 11 классов</a>
+        </div>
+        <div id="world-history" class="sub-tab-content">
+            <a href="https://okulyk.kz/vsemirnaja-istorija/532/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/vsemirnaja-istorija/693/">Учебникик для 11 классов</a>
+        </div>
+        <div id="fundamentals-of-law" class="sub-tab-content">
+            <a href="https://okulyk.kz/osnovy-prava/585/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/osnovy-prava/698/">Учебникик для 11 классов</a>
+        </div>
+        <div id="physics" class="sub-tab-content">
+            <a href="https://okulyk.kz/fizika/529/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/fizika/704/">Учебникик для 11 классов</a>
+        </div>
+        <div id="geography" class="sub-tab-content">
+            <a href="https://okulyk.kz/geografija/526/">Учебникик для 10 классов</a>
+            <a href="https://okulyk.kz/geografija/695/">Учебникик для 11 классов</a>
+        </div>
+        <style>
+        .sub-tab-content a {
+            display: block; /* Каждая ссылка будет занимать отдельную строку */
+            margin-bottom: 10px; /* Добавление отступа снизу */
+        }
+        </style>
+    
+    </div>
+    
+    
+    
+    
+    
+    
+    </div>
+    
+    
+    
+    <div id="about" class="tab-content">
+    <div class="slider" id="slider">
+        <div class="slide active"><img src="{% static 'afkidz.jpg' %}" alt="Фото 1"><div class="slide-text">Balongoki na beto. Awa nge lenda mona mutindu bana ke na kuzinga mbote na nzo-nkanda.</div></div>
+        <div class="slide"><img src="{% static 'kidzaf.jpg' %}" alt="Фото 2"><div class="slide-text">Balongoki na beto. Awa nge lenda mona mutindu bana ke na kuzinga mbote na nzo-nkanda.</div></div>
+        <div class="slide"><img src="{% static 'regnum_picture_16904683554749_big.jpg' %}" alt="Фото 3"><div class="slide-text">Balongoki na beto. Awa nge lenda mona mutindu bana ke na kuzinga mbote na nzo-nkanda.</div></div>
+        <div class="slide"><img src="{% static 'images.jpg' %}" alt="Фото 4"><div class="slide-text">Balongoki na beto. Awa nge lenda mona mutindu bana ke na kuzinga mbote na nzo-nkanda.</div></div>
+        <div class="slide"><img src="{% static 'look.jpg' %}" alt="Фото 5"><div class="slide-text">Nzo-nkanda na beto. Beto kele ti mambu ya mbote kibeni.</div></div>
+        <div class="arrow left" id="prev" onclick="showSlide(currentSlide - 1)">&#10094;</div>
+        <div class="arrow right" id="next" onclick="showSlide(currentSlide + 1)">&#10095;</div>
+    </div>
+        <h2>Преимущества</h2>
+        <div class="gallery">
+            <div class="image-container">
+                <img src="{% static 'alumn.jpg' %}" alt="Изображение 1">
+                <div class="overlay">
+                <p>Международное признание - аттестаты нашей школы принимаются во всех точках мира.</p>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'teach.jpeg' %}" alt="Изображение 2">
+            <div class="overlay">
+                <p>Квалифицированные преподаватели - все учителя проходят тщательную проверку и жесткий отбор перед тем, как стать работниками нашей школы. </p>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'lkl.jpg' %}" alt="Изображение 3">
+            <div class="overlay">
+                <p>Дополнительные занятия - наша школа предоставляет внеклассные занятия, которыми все наши ученики могут воспользоваться без ограничений. </p>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="{% static 'schh.jpg' %}" alt="Изображение 4">
+            <div class="overlay">
+                <p>Доброжелательная атмосфера - мы стараемся обеспечить все коллективы дружелюбной атмосферой. Также политика нашей школы полностью пресекает насилие и травлю в любых ее проявлениях.</p>
+            </div>
+        </div>
+    </div>
+    <!-- Полноэкранная регистрация -->
+    <div class="registration-fullscreen" id="registrationFullscreen">
+        <span class="close-btn" onclick="closeRegistration()">&#10005;</span>
+        <div class="registration-form">
+            <h2>Регистрация</h2>
+            <form action="submit_registration.php" method="post">
+                <label for="username">Имя пользователя:</label>
+                <input type="text" id="username" name="username" required>
+    
+                <label for="email">Электронная почта:</label>
+                <input type="email" id="email" name="email" required>
+    
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password" required>
+    
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Футер с контактами -->
+    <footer>
+        <p>&copy; 2024 WakaSchool. Все права защищены.</p>
+        <p>Телефон администрации: +00 (123) 456-78-90</p>
+        <p>Адрес: г. Мапуту, ул. Байакер 228</p>
+    </footer>
+    
+    <!-- Скрипт для работы слайдера и регистрации -->
+    <script>
+         function openTab(event, tabName) {
+            // Скрыть все основные вкладки
+            var i, tabcontent, tabbuttons;
+    
+            // Скрываем все основные вкладки
+            tabcontent = document.querySelectorAll(".tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+    
+            // Убрать активный класс со всех кнопок
+            tabbuttons = document.querySelectorAll(".tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+    
+            // Показать активную вкладку и выделить соответствующую кнопку
+            var activeTab = document.getElementById(tabName);
+            if (activeTab) {
+                activeTab.style.display = "block";
+                event.currentTarget.classList.add("active");
+            }
+        }
+    
+        function openSubTab(event, tabName) {
+            // Скрыть все внутренние вкладки
+            var i, subTabContent, subTabButtons;
+    
+            subTabContent = document.querySelectorAll(".sub-tab-content");
+            for (i = 0; i < subTabContent.length; i++) {
+                subTabContent[i].style.display = "none";
+            }
+    
+            // Показать активную внутреннюю вкладку
+            var activeSubTab = document.getElementById(tabName);
+            if (activeSubTab) {
+                activeSubTab.style.display = "block";
+            }
+        }
+    
+        // Открыть первую вкладку по умолчанию
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".tab-button").click();
+        });
+        function openTab(event, tabName) {
+            // Скрыть все вкладки
+            var i, tabcontent, tabbuttons;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].style.display = "none";
+            }
+    
+            // Убрать активный класс со всех кнопок
+            tabbuttons = document.getElementsByClassName("tab-button");
+            for (i = 0; i < tabbuttons.length; i++) {
+                tabbuttons[i].classList.remove("active");
+            }
+    
+            // Показать активную вкладку и выделить соответствующую кнопку
+            document.getElementById(tabName).style.display = "block";
+            event.currentTarget.classList.add("active");
+        }
+    
+        // Открыть первую вкладку по умолчанию
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(".tab-button").click();
+        });
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const slideTexts = [
+        "Balongoki na beto. Awa nge lenda mona mutindu bana ke na kuzinga mbote na nzo-nkanda.",
+        "Balongoki na beto. Awa nge lenda mona mutindu bana ke na kuzinga mbote na nzo-nkanda.",
+        "Balongoki na beto. Awa nge lenda mona mutindu bana ke na kuzinga mbote na nzo-nkanda.",
+        "Balongoki na beto. Awa nge lenda mona mutindu bana ke na kuzinga mbote na nzo-nkanda.",
+        "Nzo-nkanda na beto. Beto kele ti mambu ya mbote kibeni."
+    ];
+    
+        function showSlide(index) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (index + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+             // Обновляем текст
+        const textElements = document.querySelectorAll('.slide-text');
+        textElements.forEach((textElement, i) => {
+            if (i === currentSlide) {
+                textElement.style.display = 'block';
+            } else {
+                textElement.style.display = 'none';
+            }
+        });
+        }
+    
+        function openRegistration() {
+            document.getElementById('registrationFullscreen').classList.add('active');
+        }
+    
+        function closeRegistration() {
+            document.getElementById('registrationFullscreen').classList.remove('active');
+        }
+    
+        // Обновляем текст
+    
+    
+    // Изначально скрываем текст для всех слайдов, кроме первого
+    document.querySelectorAll('.slide-text').forEach((textElement, i) => {
+        textElement.style.display = i === currentSlide ? 'block' : 'none';
+    });
+    </script>
+        </body>
+</html>

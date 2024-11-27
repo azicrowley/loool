@@ -1,0 +1,348 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: khaki;
+   
+}
+.lol {
+   font-size: 45px;
+   font-family: impact;
+   color: black;
+}
+.navbar-brand {
+    font-size: 20px;
+}
+
+.navbar {
+    background-color: #FF8C00;
+}
+.navbar-brand, .navbar-nav .nav-link {
+    color: #fff !important;
+}
+.navbar-brand:hover, .navbar-nav .nav-link:hover {
+    color: #FF4500 !important;
+}
+
+.navbar-nav {
+display: flex;
+justify-content: center;
+width: 100%; /* Убедитесь, что ширина 100% */
+}
+.tab-container {
+background-color: #FF8C00; /* Оранжевый фон для всей строки вкладок */
+padding: 10px;
+display: flex;
+justify-content: flex-start; /* Выравнивание кнопок по левому краю */
+}
+
+.tab-button {
+background-color: #FF8C00;
+color: white; /* Белый цвет текста */
+border: none; /* Убираем обводку */
+padding: 5px 15px; /* Увеличиваем отступы внутри кнопок для большего пространства */
+cursor: pointer;
+font-size: 18px;
+margin-right: 100px; /* Увеличиваем отступ между кнопками */
+border-radius: 5px;
+transition: background-color 0.3s ease;
+}
+
+
+
+
+/* Стили для активной вкладки */
+.tab-button.active {
+    background-color:firebrick; /* Темно-оранжевый цвет для активной вкладки */
+}
+
+/* Изменение цвета при наведении на кнопку */
+.tab-button:hover {
+    background-color:firebrick; /* Цвет при наведении (красноватый оттенок) */
+}
+
+/* Скрытие контента по умолчанию */
+.tab-content {
+    display: none;
+}
+
+/* Отображение активного контента */
+.tab-content.active {
+    display: block;
+}
+
+/* Скрытие контента по умолчанию для вложенных вкладок */
+.sub-tab-content {
+    display: none;
+}
+.submenu {
+    display: none; /* Скрываем подменю по умолчанию */
+    position: absolute; /* Позиционируем подменю относительно кнопки */
+    top: 100%; /* Подменю будет находиться под кнопкой */
+    left: 0;
+    background-color:#FF8C00;
+    border:none;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1; /* Чтобы подменю было выше других элементов */
+}
+.tabs:hover .submenu {
+    display: block; /* Показываем подменю при наведении на вкладку */
+}
+.submenu-item {
+    padding: 10px 10px;
+    color: white;
+    text-decoration: none; 
+    display: block;
+}
+.submenu-item:hover {
+    justify-content: center;
+    background-color:firebrick; /* Цвет фона при наведении на элемент подменю */
+}
+.tabs {
+    position: relative; /* Для позиционирования подменю */
+    display: inline-block; /* Чтобы кнопки были в одной линии */
+}
+
+/* Слайдер */
+.slider {
+    width: 100%;
+    height: 400px;
+    position: relative;
+    overflow: hidden;
+    margin-top: 20px;
+}
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.slide.active {
+    display: block;
+}
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.slide-text {
+    position: absolute;
+    bottom: 20px; /* Расположение текста снизу */
+    left: 20px; /* Расположение текста слева */
+    color: white; /* Цвет текста */
+    background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для читаемости */
+    padding: 10px; /* Отступы вокруг текста */
+    border-radius: 5px; /* Закругленные углы */
+    display: inline-block;
+    font-size: 30px;
+}
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+}
+.arrow.left { left: 10px; }
+.arrow.right { right: 10px; }
+
+/* Регистрация */
+.register-btn {
+    font-size: 18px;
+    position: absolute;
+    top: 72px;
+    right: 20px;
+    background-color: #FF8C00;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.register-btn:hover {
+    background-color: firebrick;
+}
+
+h2 {
+    font-family: cursive;
+    font-style: italic;
+}
+
+.registration-fullscreen {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    flex-direction: column;
+}
+.registration-fullscreen.active {
+    display: flex;
+}
+.registration-fullscreen .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.registration-form {
+    background-color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 100%;
+}
+.registration-form input,
+.registration-form button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+.registration-form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.registration-form button:hover {
+    background-color: #218838;
+}
+
+.news-container {
+    display: flex;
+    background-color: #FAFAD2;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+    padding: 5px;
+    transition: transform 0.3s;
+}
+.news-title {
+    margin-top: 15px;
+    font-size: 24px;
+    color: #333;
+    padding-right: 10px;
+}
+.news-date {
+    font-size: 14px;
+    color: #777;
+    position: absolute;
+}
+.news-content {
+    flex: 1;
+    font-size: 16px;
+    color: #555;
+    line-clamp: 3;
+}
+.news-image {
+    max-width:200px;
+    height: auto;
+    border-radius: 5px;
+    margin-right: 15px;
+    transition: transform 0.3s;
+}
+.news-image:hover {
+    transform: scale(1.1);
+}
+.gallery {
+display: grid;
+grid-template-columns: repeat(4, 1fr); /* Четыре колонки равной ширины */
+gap: 20px; /* Промежутки между изображениями */
+width: 100%; /* Ширина всей галереи */
+height: auto; /* Высота галереи адаптивная */
+}
+
+.image-container {
+position: relative;
+overflow: hidden;
+border-radius: 12px; /* Закругление углов */
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для глубины */
+}
+
+.image-container img {
+width: 100%;
+height: auto; /* Высота изображений адаптивная */
+object-fit: cover;
+transition: transform 0.3s ease;
+}
+
+.image-container:hover img {
+opacity: 0.7; /* Эффект при наведении */
+transform: scale(1.05); /* Масштабирование при наведении */
+}
+
+.overlay {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.5);
+display: flex;
+justify-content: center;
+align-items: center;
+color: white;
+opacity: 0;
+transition: opacity 0.3s ease;
+font-size: 18px; /* Размер шрифта для наложения */
+text-align: center;
+}
+
+.image-container:hover .overlay {
+opacity: 1; /* Эффект наложения при наведении */
+}
+
+.text {
+font-family: cursive;
+font-style: italic;
+position: relative;
+height:400px;
+background-size: cover;
+background-image: url(https://pibig.info/uploads/posts/2022-11/1668603953_1-pibig-info-p-savanna-pinterest-2.jpg);
+background-position: center;
+font-size: 2.5em;
+color:white;
+text-align: center;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.historysch {
+font-family: cursive;
+font-style: italic;
+font-size: 1.2em;
+line-height: 1.6;
+padding: 15px;
+margin: 20px 0;
+
+}
+/* Футер */
+footer {
+    background-color: #FF8C00;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+}
+footer p {
+    margin: 5px 0;
+}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Главная страница{% endblock %}
+
+{% block content %}
+
+<div class="tab-container">
+<button class="tab-button" onclick="openTab(event, 'about')">Главная</button>
+<div class="tabs">
+    <button class="tab-button">О нас</button>
+     <div class="submenu">
+      <button class="tab-button" onclick="openTab(event, 'history')">История создания</button>
+      <button class="tab-button" onclick="openTab(event, 'programm')">Программа обучения</button>
+    </div>
+     <button class="tab-button" data-url="{% url 'register' %}" onclick="window.location.href=this.getAttribute('data-url')">Регистрация</button>
+</div>
+{% endblock %}
